@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4You</title>
+</head>
+<body>
+
+<script>
+    const words = ["Кохаю тебе Ластівятко моє злегка кучеряве"];
+    const word = words[Math.floor(Math.random() * words.length)]
+    const answerArr = [];
+
+    for (let i = 0; i < word.length; i++) {
+        answerArr[i] = "_";
+    }
+    let remainingLetter = word.length;
+    while (remainingLetter > 0) {
+        alert(answerArr.join(" "));
+        let guess = prompt("Вгадай букву ♥ або можеш нажати cancel 💔");
+        if (guess === null) {
+            break;
+        } else if (guess.length !== 1) {
+            alert("Напиши буковку =(");
+        } else {
+            for (let j = 0; j < word.length; j++) {
+                if (word[j] === guess) {
+                    answerArr[j] = guess;
+                    remainingLetter--;
+                }
+            }
+        }
+    }
+    alert(answerArr.join("  "));
+    alert("То є щира правда - " + word);
+</script>
+
+</body>
+</html>
